@@ -19,9 +19,9 @@
 
 @dynamic metric;
 
-- (id)initWithName:(NSString *)name deviceIsPhone:(BOOL)iPhoneInUse;
+- (id)initWithName:(NSString *)name horizontalSizeClass:(UIUserInterfaceSizeClass)horizontalSizeClass;
 {
-    if (iPhoneInUse)
+    if (horizontalSizeClass == UIUserInterfaceSizeClassCompact)
     {
         self = [super initWithNibName:@"ExpressionView_iPhone" bundle:nil];
     }
@@ -57,7 +57,6 @@
     self.expressionLabel.text = self.name;
 
     self.scoreLabel.font = [UIFont fontWithName:@"SquareFont" size:scoreSize];
-    
     self.indicatorBounds = self.indicatorView.bounds;
     [self setMetric:0.0];
 }

@@ -24,6 +24,6 @@
 - (void)faceUndetected;
 - (void)reset;
 
-- (id)initWithName:(NSString *)name deviceIsPhone:(BOOL)iPhoneInUse;
+- (id)initWithName:(NSString *)name horizontalSizeClass:(UIUserInterfaceSizeClass)horizontalSizeClass;
 
 @end

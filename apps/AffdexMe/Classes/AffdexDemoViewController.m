@@ -108,7 +108,12 @@
 
 @property (strong) NSMutableArray *facePointsToDraw;
 @property (strong) NSMutableArray *faceRectsToDraw;
-@property (strong) NSMutableArray *viewControllers;
+
+@property (strong) NSMutableArray *expressionViewControllers_compact;
+@property (strong) NSMutableArray *expressionViewControllers_regular;
+@property (strong) NSMutableArray *classifierViews_compact;
+@property (strong) NSMutableArray *classifierViews_regular;
+
 #ifdef BROADCAST_VIA_UDP
 @property (strong) GCDAsyncUdpSocket *udpSocket;
 #endif
@@ -117,14 +122,6 @@
 @property (strong) NSArray *emotions;   // the array of dictionaries of all emotion classifiers
 @property (strong) NSArray *expressions; // the array of dictionaries of all expression classifiers
 @property (strong) NSArray *emojis; // the array of dictionaries of all emoji classifiers
-
-// AffdexMe supports up to 6 classifers on the screen at a time
-@property (strong) NSString *classifier1Name;
-@property (strong) NSString *classifier2Name;
-@property (strong) NSString *classifier3Name;
-@property (strong) NSString *classifier4Name;
-@property (strong) NSString *classifier5Name;
-@property (strong) NSString *classifier6Name;
 
 @property (strong) CMMotionManager *motionManager;
 
@@ -206,7 +203,7 @@
     
     self.dateOfLastProcessedFrame = now;
     
-    // setup arrays of points and rects
+    // set up arrays of points and rects
     self.facePointsToDraw = [NSMutableArray new];
     self.faceRectsToDraw = [NSMutableArray new];
 
@@ -214,91 +211,48 @@
     for (AFDXFace *face in [faces allValues])
     {
         NSDictionary *faceData = face.userInfo;
-        NSArray *viewControllers = [faceData objectForKey:@"viewControllers"];
-        
-//        NSLog(@"yaw=%.f, pitch=%.f, roll=%.f", face.orientation.yaw, face.orientation.pitch, face.orientation.roll);
-        __block float classifier1Score = 0.0, classifier2Score = 0.0, classifier3Score = 0.0;
-        __block float classifier4Score = 0.0, classifier5Score = 0.0, classifier6Score = 0.0;
-        
+        NSArray *compactExpressionViewControllers = [faceData objectForKey:@"compactExpressionViewControllers"];
+        NSArray *regularExpressionViewControllers = [faceData objectForKey:@"regularExpressionViewControllers"];
+
         [self.facePointsToDraw addObjectsFromArray:face.facePoints];
         [self.faceRectsToDraw addObject:[NSValue valueWithCGRect:face.faceBounds]];
 
         // get dominant emoji
         [face.userInfo setObject:[NSNumber numberWithInt:face.emojis.dominantEmoji] forKey:@"dominantEmoji"];
 
-        for (ExpressionViewController *v in viewControllers)
+        for (NSArray *classifierArray in self.availableClassifiers)  // e.g. [ emotions, expressions ]
         {
-            for (NSArray *a in self.availableClassifiers)
+            for (NSDictionary *classifierDict in classifierArray)    // array of selected classifier.
             {
-                for (NSDictionary *d in a) {
-                    if ([[d objectForKey:@"name"] isEqualToString:self.classifier1Name])
+                for (NSInteger classifierIndex = 0; classifierIndex<[self.selectedClassifiers count]; classifierIndex++)
+                {
+                    NSString *classifierName = [self.selectedClassifiers objectAtIndex:classifierIndex];
+                    if ([[classifierDict objectForKey:@"name"] isEqualToString:classifierName])
                     {
-                        NSString *scoreName = [d objectForKey:@"score"];
-                        classifier1Score = [[face valueForKeyPath:scoreName] floatValue];
-                    }
-                    if ([[d objectForKey:@"name"] isEqualToString:self.classifier2Name])
-                    {
-                        NSString *scoreName = [d objectForKey:@"score"];
-                        classifier2Score = [[face valueForKeyPath:scoreName] floatValue];
-                    }
-                    if ([[d objectForKey:@"name"] isEqualToString:self.classifier3Name])
-                    {
-                        NSString *scoreName = [d objectForKey:@"score"];
-                        classifier3Score = [[face valueForKeyPath:scoreName] floatValue];
-                    }
-                    if ([[d objectForKey:@"name"] isEqualToString:self.classifier4Name])
-                    {
-                        NSString *scoreName = [d objectForKey:@"score"];
-                        classifier4Score = [[face valueForKeyPath:scoreName] floatValue];
-                    }
-                    if ([[d objectForKey:@"name"] isEqualToString:self.classifier5Name])
-                    {
-                        NSString *scoreName = [d objectForKey:@"score"];
-                        classifier5Score = [[face valueForKeyPath:scoreName] floatValue];
-                    }
-                    if ([[d objectForKey:@"name"] isEqualToString:self.classifier6Name])
-                    {
-                        NSString *scoreName = [d objectForKey:@"score"];
-                        classifier6Score = [[face valueForKeyPath:scoreName] floatValue];
+                        NSString *scoreName = [classifierDict objectForKey:@"score"];
+                        __block float classifierScore = [[face valueForKeyPath:scoreName] floatValue];
+
+                        for (ExpressionViewController *v in compactExpressionViewControllers)
+                        {
+                            if ([v.name isEqualToString:classifierName])
+                            {
+                                dispatch_async(dispatch_get_main_queue(), ^{
+                                    v.metric = classifierScore;
+                                });
+                            }
+                        }
+
+                        for (ExpressionViewController *v in regularExpressionViewControllers)
+                        {
+                            if ([v.name isEqualToString:classifierName])
+                            {
+                                dispatch_async(dispatch_get_main_queue(), ^{
+                                    v.metric = classifierScore;
+                                });
+                            }
+                        }
                     }
                 }
-            }
-
-            if ([v.name isEqualToString:self.classifier1Name])
-            {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    v.metric = classifier1Score;
-                });
-            }
-            else if ([v.name isEqualToString:self.classifier2Name])
-            {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    v.metric = classifier2Score;
-                });
-            }
-            else if ([v.name isEqualToString:self.classifier3Name])
-            {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    v.metric = classifier3Score;
-                });
-            }
-            else if ([v.name isEqualToString:self.classifier4Name])
-            {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    v.metric = classifier4Score;
-                });
-            }
-            else if ([v.name isEqualToString:self.classifier5Name])
-            {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    v.metric = classifier5Score;
-                });
-            }
-            else if ([v.name isEqualToString:self.classifier6Name])
-            {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    v.metric = classifier6Score;
-                });
             }
 
 #ifdef BROADCAST_VIA_UDP
@@ -315,12 +269,12 @@
 #endif
         }
     }
-};
+}
 
 - (UIImage *)captureSnapshot;
 {
     UIImage *result;
-    
+
     UIGraphicsBeginImageContext(self.view.frame.size);
     [self.view drawViewHierarchyInRect:self.view.frame afterScreenUpdates:YES];
     result = UIGraphicsGetImageFromCurrentImageContext();
@@ -352,7 +306,11 @@
     }
     
     // set the expression bars for the visible expressions to 0
-    for (ExpressionViewController *vc in self.viewControllers)
+    for (ExpressionViewController *vc in self.expressionViewControllers_compact)
+    {
+        vc.metric = 0.0;
+    }
+    for (ExpressionViewController *vc in self.expressionViewControllers_regular)
     {
         vc.metric = 0.0;
     }
@@ -470,11 +428,10 @@
                     }
 #endif
 
-                    BOOL iPhone = ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone);
                     if (self.dominantEmotionOrExpression == nil) {
-                        self.dominantEmotionOrExpression = [[ExpressionViewController alloc] initWithName:dominantName deviceIsPhone:iPhone];
+                        self.dominantEmotionOrExpression = [[ExpressionViewController alloc] initWithName:dominantName horizontalSizeClass:UIUserInterfaceSizeClassCompact];
                     }
-                    
+
                     if (dominantScore >= 50.0) {
                         self.dominantEmotionOrExpression.view.hidden = FALSE;
                         [self.dominantEmotionOrExpression setMetric:dominantScore];
@@ -596,10 +553,11 @@
         
         [UIView commitAnimations];
         */
-        if (weakSelf.viewControllers != nil)
+        if ((weakSelf.expressionViewControllers_compact != nil) && (weakSelf.expressionViewControllers_regular != nil))
         {
             face.userInfo = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                             weakSelf.viewControllers, @"viewControllers",
+                             weakSelf.expressionViewControllers_compact, @"compactExpressionViewControllers",
+                             weakSelf.expressionViewControllers_regular, @"regularExpressionViewControllers",
                              [NSNumber numberWithInt:AFDX_EMOJI_NONE], @"dominantEmoji",
                              nil];
 
@@ -619,11 +577,15 @@
 //    __block AffdexDemoViewController *weakSelf = self;
 
     dispatch_async(dispatch_get_main_queue(), ^{
-        for (ExpressionViewController *vc in self.viewControllers)
+        for (ExpressionViewController *vc in self.expressionViewControllers_compact)
         {
             vc.metric = 0.0;
         }
-        
+        for (ExpressionViewController *vc in self.expressionViewControllers_regular)
+        {
+            vc.metric = 0.0;
+        }
+
 /*
         BOOL iPhone = ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone);
         
@@ -902,7 +864,6 @@
             self.selectedClassifiers = [NSMutableArray arrayWithObjects:@"Anger", @"Contempt", @"Disgust", @"Fear", @"Joy", @"Sadness", @"Surprise", @"Valence", nil];
         }
     }
-    
     return self;
 }
 
@@ -913,10 +874,10 @@
     
     self.cameraToUse = AFDX_CAMERA_FRONT;
     
-    CGFloat scaleFactor = 1;
-    BOOL iPhone = ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone);
-    if (iPhone == TRUE) {
-        scaleFactor *= 1;
+    CGFloat scaleFactor = 1.0;
+    BOOL compactWidth = [self traitCollection].horizontalSizeClass == UIUserInterfaceSizeClassCompact;
+    if (compactWidth == TRUE) {
+        scaleFactor *= 1.0;
     }
     
     self.maleImage = [UIImage imageNamed:@"male-noglasses.png"];
@@ -941,14 +902,33 @@
                                                  orientation:(self.unknownImage.imageOrientation)];
     self.unknownImageWithGlasses = [UIImage imageNamed:@"unknown-glasses.png"];
     self.unknownImageWithGlasses = [UIImage imageWithCGImage:[self.unknownImageWithGlasses CGImage]
-                                                      scale:(self.unknownImageWithGlasses.scale * scaleFactor)
-                                                orientation:(self.unknownImageWithGlasses.imageOrientation)];
+                                                       scale:(self.unknownImageWithGlasses.scale * scaleFactor)
+                                                 orientation:(self.unknownImageWithGlasses.imageOrientation)];
+
+    // The classifier views are all defined as separate IBOutlets.
+    // Populate into arrays so we can iterate through them.
+    self.classifierViews_compact = [NSMutableArray arrayWithObjects:self.classifier1View_compact,
+                                                                    self.classifier2View_compact,
+                                                                    self.classifier3View_compact,
+                                                                    self.classifier4View_compact,
+                                                                    self.classifier5View_compact,
+                                                                    self.classifier6View_compact,
+                                                                    nil];
+    self.classifierViews_regular = [NSMutableArray arrayWithObjects:self.classifier1View_regular,
+                                                                    self.classifier2View_regular,
+                                                                    self.classifier3View_regular,
+                                                                    self.classifier4View_regular,
+                                                                    self.classifier5View_regular,
+                                                                    self.classifier6View_regular,
+                                                                    nil];
+
+    // Version number.
     NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString *)kCFBundleVersionKey];
     NSString *shortVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
 
     self.versionLabel_compact.text = [NSString stringWithFormat:@"%@ (%@)", shortVersion, version];
     self.versionLabel_regular.text = self.versionLabel_compact.text;
-    
+
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(prepareForBackground:)
                                                  name:UIApplicationDidEnterBackgroundNotification
@@ -968,12 +948,25 @@
     
     [self stopDetector];
 
-    for (ExpressionViewController *vc in self.viewControllers)
+    for (ExpressionViewController *vc in self.expressionViewControllers_compact)
     {
         [vc.view removeFromSuperview];
     }
-    
-    self.viewControllers = nil;
+    for (ExpressionViewController *vc in self.expressionViewControllers_regular)
+    {
+        [vc.view removeFromSuperview];
+    }
+
+    self.expressionViewControllers_compact = nil;
+    self.expressionViewControllers_regular = nil;
+}
+
+- (void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection;
+{
+    UIUserInterfaceSizeClass previousHorizontalSizeClass = [previousTraitCollection horizontalSizeClass];
+    UIUserInterfaceSizeClass newHorizontalSizeClass = [[self traitCollection] horizontalSizeClass];
+
+    NSLog(@"trait collection horizontal size class %ld --> %ld", previousHorizontalSizeClass, newHorizontalSizeClass);
 }
 
 - (void)viewWillAppear:(BOOL)animated;
@@ -981,98 +974,43 @@
     self.versionLabel_compact.hidden = TRUE;
     self.versionLabel_regular.hidden = TRUE;
     [self.imageView setImage:nil];
-    
-    NSUInteger count = [self.selectedClassifiers count];
-    self.classifier1Name = count >= 1 ? [self.selectedClassifiers objectAtIndex:0] : nil;
-    self.classifier2Name = count >= 2 ? [self.selectedClassifiers objectAtIndex:1] : nil;
-    self.classifier3Name = count >= 3 ? [self.selectedClassifiers objectAtIndex:2] : nil;
-    self.classifier4Name = count >= 4 ? [self.selectedClassifiers objectAtIndex:3] : nil;
-    self.classifier5Name = count >= 5 ? [self.selectedClassifiers objectAtIndex:4] : nil;
-    self.classifier6Name = count >= 6 ? [self.selectedClassifiers objectAtIndex:5] : nil;
-    
-    BOOL iPhone = ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone);
 
     [super viewWillAppear:animated];
     
     // setup views
-    if (iPhone == TRUE)
-    {
-        [self.classifier1View_compact setBackgroundColor:[UIColor clearColor]];
-        [self.classifier2View_compact setBackgroundColor:[UIColor clearColor]];
-        [self.classifier3View_compact setBackgroundColor:[UIColor clearColor]];
-        [self.classifier4View_compact setBackgroundColor:[UIColor clearColor]];
-        [self.classifier5View_compact setBackgroundColor:[UIColor clearColor]];
-        [self.classifier6View_compact setBackgroundColor:[UIColor clearColor]];
 
-        self.classifier1View_compact.alpha = 1.0;
-        self.classifier2View_compact.alpha = 1.0;
-        self.classifier3View_compact.alpha = 1.0;
-        self.classifier4View_compact.alpha = 1.0;
-        self.classifier5View_compact.alpha = 1.0;
-        self.classifier6View_compact.alpha = 1.0;
-    }
-    else
-    {
-        [self.classifier1View_regular setBackgroundColor:[UIColor clearColor]];
-        [self.classifier2View_regular setBackgroundColor:[UIColor clearColor]];
-        [self.classifier3View_regular setBackgroundColor:[UIColor clearColor]];
-        [self.classifier4View_regular setBackgroundColor:[UIColor clearColor]];
-        [self.classifier5View_regular setBackgroundColor:[UIColor clearColor]];
-        [self.classifier6View_regular setBackgroundColor:[UIColor clearColor]];
-
-        self.classifier1View_regular.alpha = 1.0;
-        self.classifier2View_regular.alpha = 1.0;
-        self.classifier3View_regular.alpha = 1.0;
-        self.classifier4View_regular.alpha = 1.0;
-        self.classifier5View_regular.alpha = 1.0;
-        self.classifier6View_regular.alpha = 1.0;
-    }
-    
     // create the expression view controllers to hold the expressions for this face
 
-    self.viewControllers = [NSMutableArray new];
-    if (self.classifier1Name != nil)
+    self.expressionViewControllers_compact = [NSMutableArray new];
+    self.expressionViewControllers_regular = [NSMutableArray new];
+
+    for (NSInteger i=0; i<[self.selectedClassifiers count]; i++)
     {
-        ExpressionViewController *vc = [[ExpressionViewController alloc] initWithName:self.classifier1Name deviceIsPhone:iPhone];
-        [self.viewControllers addObject:vc];
-        iPhone == TRUE ? [self.classifier1View_compact addSubview:vc.view] : [self.classifier1View_regular addSubview:vc.view];
+        NSString *classifierName = [self.selectedClassifiers objectAtIndex:i];
+
+        // Classifier view
+        // compact
+        UIView *classifierView_compact = [self.classifierViews_compact objectAtIndex:i];
+        [classifierView_compact setBackgroundColor:[UIColor clearColor]];
+        classifierView_compact.alpha = 1.0;
+
+        // regular
+        UIView *classifierView_regular = [self.classifierViews_regular objectAtIndex:i];
+        [classifierView_regular setBackgroundColor:[UIColor clearColor]];
+        classifierView_regular.alpha = 1.0;
+
+        // Expression view controller
+        ExpressionViewController *vc;
+
+        vc = [[ExpressionViewController alloc] initWithName:classifierName horizontalSizeClass:UIUserInterfaceSizeClassCompact];
+        [self.expressionViewControllers_compact addObject:vc];
+        [classifierView_compact addSubview:vc.view];
+
+        vc = [[ExpressionViewController alloc] initWithName:classifierName horizontalSizeClass:UIUserInterfaceSizeClassRegular];
+        [self.expressionViewControllers_regular addObject:vc];
+        [classifierView_regular addSubview:vc.view];
     }
 
-    if (self.classifier2Name != nil)
-    {
-        ExpressionViewController *vc = [[ExpressionViewController alloc] initWithName:self.classifier2Name deviceIsPhone:iPhone];
-        [self.viewControllers addObject:vc];
-        iPhone == TRUE ? [self.classifier2View_compact addSubview:vc.view] : [self.classifier2View_regular addSubview:vc.view];
-    }
-    
-    if (self.classifier3Name != nil)
-    {
-        ExpressionViewController *vc = [[ExpressionViewController alloc] initWithName:self.classifier3Name deviceIsPhone:iPhone];
-        [self.viewControllers addObject:vc];
-        iPhone == TRUE ? [self.classifier3View_compact addSubview:vc.view] : [self.classifier3View_regular addSubview:vc.view];
-    }
-
-    if (self.classifier4Name != nil)
-    {
-        ExpressionViewController *vc = [[ExpressionViewController alloc] initWithName:self.classifier4Name deviceIsPhone:iPhone];
-        [self.viewControllers addObject:vc];
-        iPhone == TRUE ? [self.classifier4View_compact addSubview:vc.view] : [self.classifier4View_regular addSubview:vc.view];
-    }
-    
-    if (self.classifier5Name != nil)
-    {
-        ExpressionViewController *vc = [[ExpressionViewController alloc] initWithName:self.classifier5Name deviceIsPhone:iPhone];
-        [self.viewControllers addObject:vc];
-        iPhone == TRUE ? [self.classifier5View_compact addSubview:vc.view] : [self.classifier5View_regular addSubview:vc.view];
-    }
-
-    if (self.classifier6Name != nil)
-    {
-        ExpressionViewController *vc = [[ExpressionViewController alloc] initWithName:self.classifier6Name deviceIsPhone:iPhone];
-        [self.viewControllers addObject:vc];
-        iPhone == TRUE ? [self.classifier6View_compact addSubview:vc.view] : [self.classifier6View_regular addSubview:vc.view];
-    }
-    
     [[NSUserDefaults standardUserDefaults] setObject:self.selectedClassifiers forKey:@"selectedClassifiers"];
     
     [self enterSingleFaceMode];

@@ -23,21 +23,21 @@
 @property (weak) IBOutlet UILabel *fps;
 @property (weak) IBOutlet UILabel *fpsProcessed;
 @property (weak) IBOutlet UILabel *detectors;
-@property (weak) IBOutlet UILabel *appleDetectors;
 @property (strong) AFDXDetector *detector;
 @property (assign) BOOL drawFacePoints;
 @property (assign) BOOL drawAppearanceIcons;
 @property (assign) BOOL drawEmojis;
 @property (assign) BOOL drawFaceRect;
 @property (strong) NSMutableDictionary *faceMeasurements;
-@property (weak) IBOutlet UIView *classifiersView;
 @property (weak) IBOutlet UIView *settingsView_compact;
 @property (weak) IBOutlet UIView *settingsView_regular;
 
 @property (weak) IBOutlet UIView *classifierHeaderView_compact;
 @property (weak) IBOutlet UIView *classifierHeaderView_regular;
 
+// Array of selected classifier names to be displayed in the expression view controllers.
 @property (strong) NSMutableArray *selectedClassifiers;
+
 @property (weak) IBOutlet UIView *classifier1View_compact;
 @property (weak) IBOutlet UIView *classifier2View_compact;
 @property (weak) IBOutlet UIView *classifier3View_compact;
