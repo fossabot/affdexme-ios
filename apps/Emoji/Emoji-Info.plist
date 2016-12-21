@@ -21,9 +21,11 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>3421</string>
+	<string>3452</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>Emotion AI</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Square.ttf</string>

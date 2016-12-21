@@ -4,7 +4,6 @@
 //  Created by Affectiva on 2/22/13.
 //  Copyright (c) 2016 Affectiva Inc.
 //
-//  See the file license.txt for copying permission.
 
 // If this is being compiled for the iOS simulator, a demo mode is used since the camera isn't supported.
 #if TARGET_IPHONE_SIMULATOR
@@ -432,7 +431,6 @@
     
     self.dateOfLastFrame = nil;
     self.dateOfLastProcessedFrame = nil;
-    self.detector.licensePath = [[NSBundle mainBundle] pathForResource:@"sdk" ofType:@"license"];
     
     // tell the detector which facial expressions we want to measure
     [self.detector setDetectAllEmotions:NO];
@@ -502,7 +500,8 @@
     vc.face = self.targetFace;
 }
 
--(IBAction)prepareForUnwind:(UIStoryboardSegue *)segue {
+-(IBAction)prepareForUnwind:(UIStoryboardSegue *)segue
+{
 }
 
 

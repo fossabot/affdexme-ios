@@ -155,7 +155,8 @@
     return self;
 }
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     
     self.imageView.image = [self.face.userInfo objectForKey:@"image"];
