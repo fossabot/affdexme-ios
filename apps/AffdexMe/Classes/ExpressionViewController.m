@@ -91,9 +91,13 @@
         }
 
         [self.indicatorView setBounds:bounds];
-        self.scoreLabel.text = [NSString stringWithFormat:@"%.0f%%", value];
-//        float alphaValue = fmax(fabs(value) / 100.0, 0.35);
-//        self.view.alpha = alphaValue;
+        if ([self.name length])
+        {
+            self.scoreLabel.text = [NSString stringWithFormat:@"%.0f%%", value];
+        }
+        else {
+            self.scoreLabel.text = nil;
+        }
     }
 }
 

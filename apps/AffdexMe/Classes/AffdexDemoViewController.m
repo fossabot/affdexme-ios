@@ -984,9 +984,18 @@
     self.expressionViewControllers_compact = [NSMutableArray new];
     self.expressionViewControllers_regular = [NSMutableArray new];
 
-    for (NSInteger i=0; i<[self.selectedClassifiers count]; i++)
+    NSInteger selectedClassifierCount = [self.selectedClassifiers count];
+    for (NSInteger i=0; i<6; i++)
     {
-        NSString *classifierName = [self.selectedClassifiers objectAtIndex:i];
+        NSString *classifierName;
+        if (i < selectedClassifierCount)
+        {
+            classifierName = [self.selectedClassifiers objectAtIndex:i];
+        }
+        else
+        {
+            classifierName = @"";
+        }
 
         // Classifier view
         // compact
