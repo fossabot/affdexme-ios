@@ -1094,7 +1094,7 @@
         maximumFaces = 3;
     }
 #ifdef DEMO_MODE
-    // create our detector with our desired facial expresions, using the front facing camera
+    // create our detector with our desired facial expressions, using the front facing camera
     self.detector = [[AFDXDetector alloc] initWithDelegate:self usingFile:self.mediaFilename maximumFaces:maximumFaces];
 #else
     // create our detector with our desired facial expresions, using the front facing camera
