@@ -21,7 +21,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>3620</string>
+	<string>3627</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -32,6 +32,8 @@
 		<false/>
 	</dict>
 	<key>NSCameraUsageDescription</key>
+	<string>Emotion AI</string>
+	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Emotion AI</string>
 	<key>UIAppFonts</key>
 	<array>
