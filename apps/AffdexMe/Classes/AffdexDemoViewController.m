@@ -299,9 +299,12 @@
 
 - (IBAction)cameraSwapButtonTouched:(id)sender;
 {
-    if (self.cameraToUse == AFDX_CAMERA_FRONT) {
+    if (self.cameraToUse == AFDX_CAMERA_FRONT)
+    {
         self.cameraToUse = AFDX_CAMERA_BACK;
-    } else {
+    }
+    else
+    {
         self.cameraToUse = AFDX_CAMERA_FRONT;
     }
     
