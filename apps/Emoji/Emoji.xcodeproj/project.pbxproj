@@ -72,6 +72,8 @@
 		68F07FA01C4E931200A3E7CA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68F07F9F1C4E931200A3E7CA /* Images.xcassets */; };
 		68F626BD1B91E502004521CE /* HeaderCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F626BC1B91E502004521CE /* HeaderCollectionReusableView.m */; };
 		68FA744C1B8E1659004045F3 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68FA744B1B8E1659004045F3 /* MediaPlayer.framework */; };
+		D908815A1E39CE6D008FDC40 /* Affectiva_Logo_Clear_Background.png in Resources */ = {isa = PBXBuildFile; fileRef = D90881581E39CE6D008FDC40 /* Affectiva_Logo_Clear_Background.png */; };
+		D908815B1E39CE6D008FDC40 /* Poweredby_Affectiva_clearbgk_FNL.png in Resources */ = {isa = PBXBuildFile; fileRef = D90881591E39CE6D008FDC40 /* Poweredby_Affectiva_clearbgk_FNL.png */; };
 		D922C6F01DF8DFDD0000841A /* Powered by Affectiva - Light Backgrounds.png in Resources */ = {isa = PBXBuildFile; fileRef = D922C6EF1DF8DFDD0000841A /* Powered by Affectiva - Light Backgrounds.png */; };
 /* End PBXBuildFile section */
 
@@ -169,6 +171,8 @@
 		68FA744B1B8E1659004045F3 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		69CD3E7867334417111DC134 /* Pods-AffdexEmoji.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AffdexEmoji.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AffdexEmoji/Pods-AffdexEmoji.debug.xcconfig"; sourceTree = "<group>"; };
 		7E792631EA44485F23940407 /* Pods-AffdexEmoji.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AffdexEmoji.release.xcconfig"; path = "Pods/Target Support Files/Pods-AffdexEmoji/Pods-AffdexEmoji.release.xcconfig"; sourceTree = "<group>"; };
+		D90881581E39CE6D008FDC40 /* Affectiva_Logo_Clear_Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Affectiva_Logo_Clear_Background.png; sourceTree = "<group>"; };
+		D90881591E39CE6D008FDC40 /* Poweredby_Affectiva_clearbgk_FNL.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Poweredby_Affectiva_clearbgk_FNL.png; sourceTree = "<group>"; };
 		D922C6EF1DF8DFDD0000841A /* Powered by Affectiva - Light Backgrounds.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Powered by Affectiva - Light Backgrounds.png"; path = "media/images/Powered by Affectiva - Light Backgrounds.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -231,6 +235,8 @@
 			children = (
 				68F07F9F1C4E931200A3E7CA /* Images.xcassets */,
 				D922C6EF1DF8DFDD0000841A /* Powered by Affectiva - Light Backgrounds.png */,
+				D90881581E39CE6D008FDC40 /* Affectiva_Logo_Clear_Background.png */,
+				D90881591E39CE6D008FDC40 /* Poweredby_Affectiva_clearbgk_FNL.png */,
 				686C75BE1B95EAC000483C1A /* media */,
 				65920A7A16D73F8700D89A4B /* Emoji-Info.plist */,
 				65920A8016D73F8700D89A4B /* Emoji-Prefix.pch */,
@@ -429,6 +435,7 @@
 				686C75E51B95EAC000483C1A /* Anger.jpg in Resources */,
 				686C75FD1B95EAC000483C1A /* Upper Lip Raise.jpg in Resources */,
 				680348971C3C1413005CF454 /* male-glasses.png in Resources */,
+				D908815B1E39CE6D008FDC40 /* Poweredby_Affectiva_clearbgk_FNL.png in Resources */,
 				686C76001B95EAC000483C1A /* Whit.m4a in Resources */,
 				686C75F51B95EAC000483C1A /* Lip Suck.jpg in Resources */,
 				680348941C3C1413005CF454 /* unknown-noglasses.png in Resources */,
@@ -449,6 +456,7 @@
 				686C75F81B95EAC000483C1A /* Sadness.jpg in Resources */,
 				686C75EC1B95EAC000483C1A /* Engagement.jpg in Resources */,
 				686C75EB1B95EAC000483C1A /* Disgust.jpg in Resources */,
+				D908815A1E39CE6D008FDC40 /* Affectiva_Logo_Clear_Background.png in Resources */,
 				686C75FB1B95EAC000483C1A /* Smirk.jpg in Resources */,
 				686C75F71B95EAC000483C1A /* Nose Wrinkle.jpg in Resources */,
 				68914FF41A9104FE00A6C4D7 /* Main.storyboard in Resources */,

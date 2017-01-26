@@ -15,4 +15,6 @@
 @property (strong) IBOutlet UILabel *emojiLabel;
 @property (strong) AFDXFace *face;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *poweredByViewTopConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *poweredByViewBottomConstraint;
 @end

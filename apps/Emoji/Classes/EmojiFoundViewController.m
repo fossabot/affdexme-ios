@@ -6,6 +6,8 @@
 //  Copyright © 2016 Affectiva. All rights reserved.
 //
 
+#import <sys/utsname.h>
+
 #import "EmojiFoundViewController.h"
 
 @interface UIImage (test)
@@ -82,6 +84,64 @@
 @end
 
 @implementation EmojiFoundViewController
+
+- (NSString *)deviceName
+{
+    struct utsname systemInfo;
+    uname(&systemInfo);
+    NSString *deviceName;
+
+    NSString *machineName = [NSString stringWithCString:systemInfo.machine encoding:NSUTF8StringEncoding];
+
+    if ([machineName isEqualToString:@"iPhone1,2"])
+    {
+        deviceName = @"iPhone 3G";
+    }
+    else if ([machineName isEqualToString:@"iPhone2,1"])
+    {
+        deviceName = @"iPhone 3GS";
+    }
+    else if ([machineName isEqualToString:@"iPhone3,1"] ||
+            [machineName isEqualToString:@"iPhone3,2"] ||
+            [machineName isEqualToString:@"iPhone3,3"])
+    {
+        deviceName = @"iPhone 4";
+    }
+    else if ([machineName isEqualToString:@"iPhone4,1"])
+    {
+        deviceName = @"iPhone 4S";
+    }
+    else if ([machineName isEqualToString:@"iPhone5,1"])
+    {
+        deviceName = @"iPhone 5";
+    }
+    else if ([machineName isEqualToString:@"iPod1,1"])
+    {
+        deviceName = @"iPod Touch 1G";
+    }
+    else if ([machineName isEqualToString:@"iPod2,1"] ||
+             [machineName isEqualToString:@"iPod2,2"])
+    {
+        deviceName = @"iPod Touch 2G";
+    }
+    else if ([machineName isEqualToString:@"iPod3,1"])
+    {
+        deviceName = @"iPod Touch 3G";
+    }
+    else if ([machineName isEqualToString:@"iPod4,1"])
+    {
+        deviceName = @"iPod Touch 4G";
+    }
+    else if ([machineName isEqualToString:@"iPod5,1"])
+    {
+        deviceName = @"iPod Touch 5G";
+    }
+    else
+    {
+        NSLog(@"Unknown machine name %@", machineName);
+        deviceName = machineName;
+    }
+}
 
 - (id)initWithCoder:(NSCoder *)aDecoder;
 {
