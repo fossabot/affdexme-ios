@@ -10,10 +10,12 @@
 #define DEMO_MODE
 #endif
 
+#import <CoreMotion/CoreMotion.h>
+
 #import "UIDeviceHardware.h"
 #import "EmojiViewController.h"
 #import "EmojiFoundViewController.h"
-#import <CoreMotion/CoreMotion.h>
+#import "SoundEffect.h"
 
 @interface EmojiViewController ()
 
@@ -36,6 +38,7 @@
 @property (strong) CMMotionManager *motionManager;
 
 @property (strong) NSTimer *timer;
+@property (strong) SoundEffect *sound;
 
 @property (assign) AFDXCameraType cameraToUse;
 @property (strong) NSMutableArray *lastEmojis;
@@ -144,16 +147,22 @@
 {
     UIImage *result;
     
+    self.settingsView.hidden = YES;
+
     UIGraphicsBeginImageContext(self.view.frame.size);
     [self.view drawViewHierarchyInRect:self.view.frame afterScreenUpdates:YES];
     result = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-    
+
+    self.settingsView.hidden = NO;
+
     return result;
 }
 
 - (IBAction)cameraButtonTouched:(id)sender;
 {
+    self.sound = [[SoundEffect alloc] initWithSoundNamed:@"camera-shutter.mp3"];
+    [self.sound play];
     UIImage *snap = [self captureSnapshot];
     if (nil != snap) {
         UIImageWriteToSavedPhotosAlbum(snap, nil, nil, nil);
@@ -192,12 +201,15 @@
                                           onImage:newImage];
     
         // flip image if the front camera is being used so that the perspective is mirrored.
-        if (weakSelf.cameraToUse == AFDX_CAMERA_FRONT) {
+        if (weakSelf.cameraToUse == AFDX_CAMERA_FRONT)
+        {
             UIImage *flippedImage = [UIImage imageWithCGImage:newImage.CGImage
                                                         scale:image.scale
                                                   orientation:UIImageOrientationUpMirrored];
             [weakSelf.imageView setImage:flippedImage];
-        } else {
+        }
+        else
+        {
             [weakSelf.imageView setImage:newImage];
         }
     });

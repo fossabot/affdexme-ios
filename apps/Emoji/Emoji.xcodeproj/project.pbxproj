@@ -75,6 +75,7 @@
 		D908815A1E39CE6D008FDC40 /* Affectiva_Logo_Clear_Background.png in Resources */ = {isa = PBXBuildFile; fileRef = D90881581E39CE6D008FDC40 /* Affectiva_Logo_Clear_Background.png */; };
 		D908815B1E39CE6D008FDC40 /* Poweredby_Affectiva_clearbgk_FNL.png in Resources */ = {isa = PBXBuildFile; fileRef = D90881591E39CE6D008FDC40 /* Poweredby_Affectiva_clearbgk_FNL.png */; };
 		D922C6F01DF8DFDD0000841A /* Powered by Affectiva - Light Backgrounds.png in Resources */ = {isa = PBXBuildFile; fileRef = D922C6EF1DF8DFDD0000841A /* Powered by Affectiva - Light Backgrounds.png */; };
+		D95FACCA1E3C881100E3D17B /* SoundEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = D95FACC91E3C881100E3D17B /* SoundEffect.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -174,6 +175,8 @@
 		D90881581E39CE6D008FDC40 /* Affectiva_Logo_Clear_Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Affectiva_Logo_Clear_Background.png; sourceTree = "<group>"; };
 		D90881591E39CE6D008FDC40 /* Poweredby_Affectiva_clearbgk_FNL.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Poweredby_Affectiva_clearbgk_FNL.png; sourceTree = "<group>"; };
 		D922C6EF1DF8DFDD0000841A /* Powered by Affectiva - Light Backgrounds.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Powered by Affectiva - Light Backgrounds.png"; path = "media/images/Powered by Affectiva - Light Backgrounds.png"; sourceTree = "<group>"; };
+		D95FACC81E3C881100E3D17B /* SoundEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundEffect.h; sourceTree = "<group>"; };
+		D95FACC91E3C881100E3D17B /* SoundEffect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundEffect.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -214,6 +217,8 @@
 		659140EE1727E23500DB4E10 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				D95FACC81E3C881100E3D17B /* SoundEffect.h */,
+				D95FACC91E3C881100E3D17B /* SoundEffect.m */,
 				68F626BB1B91E502004521CE /* HeaderCollectionReusableView.h */,
 				68F626BC1B91E502004521CE /* HeaderCollectionReusableView.m */,
 				68CF767E1B83AF500083B32E /* UIDeviceHardware.h */,
@@ -546,6 +551,7 @@
 				68F626BD1B91E502004521CE /* HeaderCollectionReusableView.m in Sources */,
 				68CF76801B83AF500083B32E /* UIDeviceHardware.m in Sources */,
 				6813DF9D1C517C6E0049B0BA /* EmojiFoundViewController.m in Sources */,
+				D95FACCA1E3C881100E3D17B /* SoundEffect.m in Sources */,
 				659140F31727E23500DB4E10 /* AppDelegate.m in Sources */,
 				682B8B73185F6D4F00DB10DE /* main.m in Sources */,
 				659140F41727E23500DB4E10 /* EmojiViewController.m in Sources */,

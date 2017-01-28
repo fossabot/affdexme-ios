@@ -23,14 +23,12 @@
 @property (assign) BOOL drawEmojis;
 @property (assign) BOOL drawFaceRect;
 @property (weak) IBOutlet UIView *classifiersView;
-@property (weak) IBOutlet UIView *settingsView_compact;
-@property (weak) IBOutlet UIView *settingsView_regular;
+@property (weak, nonatomic) IBOutlet UIView *settingsView;
 
 @property (strong) NSMutableArray *selectedClassifiers;
 
 @property (weak) IBOutlet UILabel *versionLabel_compact;
 @property (weak) IBOutlet UILabel *versionLabel_regular;
-
 
 - (void)startDetector;
 - (void)stopDetector;

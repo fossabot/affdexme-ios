@@ -9,6 +9,7 @@
 #import <sys/utsname.h>
 
 #import "EmojiFoundViewController.h"
+#import "SoundEffect.h"
 
 @interface UIImage (test)
 
@@ -80,6 +81,7 @@
 @interface EmojiFoundViewController ()
 
 @property (strong) NSArray *emojis;
+@property (strong) SoundEffect *sound;
 
 @end
 
@@ -141,6 +143,7 @@
         NSLog(@"Unknown machine name %@", machineName);
         deviceName = machineName;
     }
+    return deviceName;
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder;
@@ -243,6 +246,34 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (UIImage *)captureSnapshot;
+{
+    UIImage *result;
+
+    self.tryAgainButton.hidden = YES;
+    self.settingsView.hidden = YES;
+
+    UIGraphicsBeginImageContext(self.view.frame.size);
+    [self.view drawViewHierarchyInRect:self.view.frame afterScreenUpdates:YES];
+    result = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+
+    self.tryAgainButton.hidden = NO;
+    self.settingsView.hidden = NO;
+
+    return result;
+}
+
+- (IBAction)cameraButtonTouched:(id)sender;
+{
+    self.sound = [[SoundEffect alloc] initWithSoundNamed:@"camera-shutter.mp3"];
+    [self.sound play];
+    UIImage *snap = [self captureSnapshot];
+    if (nil != snap) {
+        UIImageWriteToSavedPhotosAlbum(snap, nil, nil, nil);
+    }
 }
 
 /*
