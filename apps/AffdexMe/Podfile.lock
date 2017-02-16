@@ -1,18 +1,18 @@
 PODS:
-  - AffdexSDK-iOS (3.2.0-615):
+  - AffdexSDK-iOS (3.2.0-616):
     - AWSKinesis
-  - AWSCore (2.4.16)
-  - AWSKinesis (2.4.16):
-    - AWSCore (= 2.4.16)
+  - AWSCore (2.5.1)
+  - AWSKinesis (2.5.1):
+    - AWSCore (= 2.5.1)
 
 DEPENDENCIES:
-  - AffdexSDK-iOS (= 3.2.0-615)
+  - AffdexSDK-iOS (= 3.2.0-616)
 
 SPEC CHECKSUMS:
-  AffdexSDK-iOS: 3d1cc0ec244e0faa33a87d57e10780582a5dacaa
-  AWSCore: 7c3c129991e6387bcbad7132bc3661e7135754db
-  AWSKinesis: 7e449258e9f7efa7d54c407a7136120ab033115c
+  AffdexSDK-iOS: bb68743b39732c593d69beb3e3030d2cea7769fb
+  AWSCore: 71ca929a42c68ca7d645fcfa1e41ea0ff792a275
+  AWSKinesis: 8d6e946d9bcfe1e8461d964461349b1f85083624
 
-PODFILE CHECKSUM: 8aafd7c119fdb01a6338478f87f915ca5d5a8495
+PODFILE CHECKSUM: a9a7df0e90f28b6388c8ee7b7b0ed527f47cb3a3
 
 COCOAPODS: 1.2.0.beta.1
