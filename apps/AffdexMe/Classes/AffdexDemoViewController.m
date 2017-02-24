@@ -475,12 +475,14 @@
         }
 
         // flip image if the front camera is being used so that the perspective is mirrored.
-        if (self.cameraToUse == AFDX_CAMERA_FRONT) {
+        if (self.cameraToUse == AFDX_CAMERA_FRONT)
+        {
             UIImage *flippedImage = [UIImage imageWithCGImage:newImage.CGImage
                                                         scale:image.scale
                                                   orientation:UIImageOrientationUpMirrored];
             [weakSelf.imageView setImage:flippedImage];
-        } else {
+        } else
+        {
             [weakSelf.imageView setImage:newImage];
         }
 
