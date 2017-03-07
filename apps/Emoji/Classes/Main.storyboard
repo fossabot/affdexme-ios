@@ -263,7 +263,7 @@
                                                     <segue destination="DNu-FY-78o" kind="unwind" unwindAction="prepareForUnwind:" id="x6q-lY-h8i"/>
                                                 </connections>
                                             </button>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Affectiva_Logo_Clear_Background.png" translatesAutoresizingMaskIntoConstraints="NO" id="pYw-gI-YmG" userLabel="PoweredByView">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Affectiva_Logo_Clear_Background.png" translatesAutoresizingMaskIntoConstraints="NO" id="pYw-gI-YmG" userLabel="Logo View">
                                                 <rect key="frame" x="295.66666666666674" y="25.333333333333371" width="112.33333333333331" height="21.333333333333258"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="pYw-gI-YmG" secondAttribute="height" multiplier="1161:219" id="YRy-yX-HaB"/>

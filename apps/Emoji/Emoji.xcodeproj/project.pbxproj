@@ -73,8 +73,6 @@
 		68F626BD1B91E502004521CE /* HeaderCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F626BC1B91E502004521CE /* HeaderCollectionReusableView.m */; };
 		68FA744C1B8E1659004045F3 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68FA744B1B8E1659004045F3 /* MediaPlayer.framework */; };
 		D908815A1E39CE6D008FDC40 /* Affectiva_Logo_Clear_Background.png in Resources */ = {isa = PBXBuildFile; fileRef = D90881581E39CE6D008FDC40 /* Affectiva_Logo_Clear_Background.png */; };
-		D908815B1E39CE6D008FDC40 /* Poweredby_Affectiva_clearbgk_FNL.png in Resources */ = {isa = PBXBuildFile; fileRef = D90881591E39CE6D008FDC40 /* Poweredby_Affectiva_clearbgk_FNL.png */; };
-		D922C6F01DF8DFDD0000841A /* Powered by Affectiva - Light Backgrounds.png in Resources */ = {isa = PBXBuildFile; fileRef = D922C6EF1DF8DFDD0000841A /* Powered by Affectiva - Light Backgrounds.png */; };
 		D95FACCA1E3C881100E3D17B /* SoundEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = D95FACC91E3C881100E3D17B /* SoundEffect.m */; };
 /* End PBXBuildFile section */
 
@@ -122,7 +120,6 @@
 		682B8B72185F6D4F00DB10DE /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Classes/main.m; sourceTree = "<group>"; };
 		6851F7611C1882E9009BEDB0 /* four_steves.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = four_steves.mp4; path = "../../../../../../Volumes/Affectiva/affdex-ios/affdex-media/testvideos/four_steves.mp4"; sourceTree = "<group>"; };
 		686C75C01B95EAC000483C1A /* Square.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Square.ttf; sourceTree = "<group>"; };
-		686C75C21B95EAC000483C1A /* Affectiva_Logo Clear Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Affectiva_Logo Clear Background.png"; sourceTree = "<group>"; };
 		686C75C31B95EAC000483C1A /* Anger.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Anger.jpg; sourceTree = "<group>"; };
 		686C75C41B95EAC000483C1A /* Attention.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Attention.jpg; sourceTree = "<group>"; };
 		686C75C51B95EAC000483C1A /* Brow Furrow.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Brow Furrow.jpg"; sourceTree = "<group>"; };
@@ -173,8 +170,6 @@
 		69CD3E7867334417111DC134 /* Pods-AffdexEmoji.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AffdexEmoji.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AffdexEmoji/Pods-AffdexEmoji.debug.xcconfig"; sourceTree = "<group>"; };
 		7E792631EA44485F23940407 /* Pods-AffdexEmoji.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AffdexEmoji.release.xcconfig"; path = "Pods/Target Support Files/Pods-AffdexEmoji/Pods-AffdexEmoji.release.xcconfig"; sourceTree = "<group>"; };
 		D90881581E39CE6D008FDC40 /* Affectiva_Logo_Clear_Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Affectiva_Logo_Clear_Background.png; sourceTree = "<group>"; };
-		D90881591E39CE6D008FDC40 /* Poweredby_Affectiva_clearbgk_FNL.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Poweredby_Affectiva_clearbgk_FNL.png; sourceTree = "<group>"; };
-		D922C6EF1DF8DFDD0000841A /* Powered by Affectiva - Light Backgrounds.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Powered by Affectiva - Light Backgrounds.png"; path = "media/images/Powered by Affectiva - Light Backgrounds.png"; sourceTree = "<group>"; };
 		D95FACC81E3C881100E3D17B /* SoundEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundEffect.h; sourceTree = "<group>"; };
 		D95FACC91E3C881100E3D17B /* SoundEffect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundEffect.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -239,9 +234,7 @@
 			isa = PBXGroup;
 			children = (
 				68F07F9F1C4E931200A3E7CA /* Images.xcassets */,
-				D922C6EF1DF8DFDD0000841A /* Powered by Affectiva - Light Backgrounds.png */,
 				D90881581E39CE6D008FDC40 /* Affectiva_Logo_Clear_Background.png */,
-				D90881591E39CE6D008FDC40 /* Poweredby_Affectiva_clearbgk_FNL.png */,
 				686C75BE1B95EAC000483C1A /* media */,
 				65920A7A16D73F8700D89A4B /* Emoji-Info.plist */,
 				65920A8016D73F8700D89A4B /* Emoji-Prefix.pch */,
@@ -318,7 +311,6 @@
 		686C75C11B95EAC000483C1A /* images */ = {
 			isa = PBXGroup;
 			children = (
-				686C75C21B95EAC000483C1A /* Affectiva_Logo Clear Background.png */,
 				686C75C31B95EAC000483C1A /* Anger.jpg */,
 				686C75C41B95EAC000483C1A /* Attention.jpg */,
 				686C75C51B95EAC000483C1A /* Brow Furrow.jpg */,
@@ -440,7 +432,6 @@
 				686C75E51B95EAC000483C1A /* Anger.jpg in Resources */,
 				686C75FD1B95EAC000483C1A /* Upper Lip Raise.jpg in Resources */,
 				680348971C3C1413005CF454 /* male-glasses.png in Resources */,
-				D908815B1E39CE6D008FDC40 /* Poweredby_Affectiva_clearbgk_FNL.png in Resources */,
 				686C76001B95EAC000483C1A /* Whit.m4a in Resources */,
 				686C75F51B95EAC000483C1A /* Lip Suck.jpg in Resources */,
 				680348941C3C1413005CF454 /* unknown-noglasses.png in Resources */,
@@ -468,7 +459,6 @@
 				686C75FC1B95EAC000483C1A /* Surprise.jpg in Resources */,
 				686C75FF1B95EAC000483C1A /* Enk.m4a in Resources */,
 				68D0FD951C0545C700D430A2 /* camera-swap-icon.png in Resources */,
-				D922C6F01DF8DFDD0000841A /* Powered by Affectiva - Light Backgrounds.png in Resources */,
 				686C75F31B95EAC000483C1A /* Lip Press.jpg in Resources */,
 				686C75ED1B95EAC000483C1A /* Expressiveness.jpg in Resources */,
 				686C75E61B95EAC000483C1A /* Attention.jpg in Resources */,
