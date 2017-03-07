@@ -20,7 +20,7 @@ before_install:
   - pod install
 
   # Build the app.
-#  - xcodebuild -workspace AffdexMe.xcworkspace -scheme 'AffdexMe' -sdk iphonesimulator -configuration Debug clean build
+  - xcodebuild -workspace AffdexMe.xcworkspace -scheme 'AffdexMe' -sdk iphonesimulator -configuration Debug clean build
 
   # Restore original working directory.
   - cd ../..
