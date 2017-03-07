@@ -9,6 +9,7 @@
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -155,9 +156,9 @@
                                 <exclude reference="mJQ-9V-5iv"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="7ZN-1u-epu"/>
                                 <exclude reference="6aw-Mi-1zg"/>
                                 <exclude reference="Jrl-kY-2bf"/>
+                                <exclude reference="7ZN-1u-epu"/>
                                 <exclude reference="uqC-N1-Twf"/>
                             </mask>
                         </variation>
@@ -167,8 +168,8 @@
                             </mask>
                             <mask key="constraints">
                                 <include reference="MpN-4l-GMK"/>
-                                <include reference="7ZN-1u-epu"/>
                                 <include reference="Jrl-kY-2bf"/>
+                                <include reference="7ZN-1u-epu"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=regular">
@@ -263,9 +264,9 @@
                                                 </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Affectiva_Logo_Clear_Background.png" translatesAutoresizingMaskIntoConstraints="NO" id="pYw-gI-YmG" userLabel="PoweredByView">
-                                                <rect key="frame" x="328" y="6" width="80" height="60"/>
+                                                <rect key="frame" x="295.66666666666674" y="25.333333333333371" width="112.33333333333331" height="21.333333333333258"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" secondItem="pYw-gI-YmG" secondAttribute="height" multiplier="4:3" id="YRy-yX-HaB"/>
+                                                    <constraint firstAttribute="width" secondItem="pYw-gI-YmG" secondAttribute="height" multiplier="1161:219" id="YRy-yX-HaB"/>
                                                 </constraints>
                                             </imageView>
                                         </subviews>
@@ -274,13 +275,12 @@
                                             <constraint firstAttribute="trailing" secondItem="pYw-gI-YmG" secondAttribute="trailing" constant="10" id="4J4-PX-rl3"/>
                                             <constraint firstAttribute="bottom" secondItem="AGG-WS-kF8" secondAttribute="bottom" constant="4" id="9KP-ca-jz2"/>
                                             <constraint firstItem="AGG-WS-kF8" firstAttribute="top" secondItem="VaC-vb-oGI" secondAttribute="top" constant="4" id="CDG-sQ-zdq"/>
-                                            <constraint firstItem="pYw-gI-YmG" firstAttribute="top" secondItem="VaC-vb-oGI" secondAttribute="top" constant="6" id="DMT-i1-ZoI"/>
                                             <constraint firstItem="99z-eV-6Ep" firstAttribute="top" secondItem="VaC-vb-oGI" secondAttribute="top" constant="4" id="GK1-Ae-wdt"/>
                                             <constraint firstAttribute="bottom" secondItem="MRX-qF-qxE" secondAttribute="bottom" constant="10" id="JKu-kJ-phE"/>
                                             <constraint firstItem="AGG-WS-kF8" firstAttribute="leading" secondItem="VaC-vb-oGI" secondAttribute="leading" constant="10" id="Pvj-hs-9Ed"/>
+                                            <constraint firstItem="pYw-gI-YmG" firstAttribute="centerY" secondItem="VaC-vb-oGI" secondAttribute="centerY" id="Xio-Fd-O1h"/>
                                             <constraint firstItem="MRX-qF-qxE" firstAttribute="centerX" secondItem="VaC-vb-oGI" secondAttribute="centerX" id="ZHD-te-7JC"/>
                                             <constraint firstItem="99z-eV-6Ep" firstAttribute="centerX" secondItem="VaC-vb-oGI" secondAttribute="centerX" id="hrj-xy-khp"/>
-                                            <constraint firstAttribute="bottom" secondItem="pYw-gI-YmG" secondAttribute="bottom" constant="6" id="iv4-K3-PKw"/>
                                             <constraint firstItem="MRX-qF-qxE" firstAttribute="top" secondItem="99z-eV-6Ep" secondAttribute="bottom" constant="4" id="nIr-AR-HK3"/>
                                         </constraints>
                                     </view>
@@ -296,6 +296,7 @@
                                     <constraint firstAttribute="trailingMargin" secondItem="uDk-7T-EsC" secondAttribute="trailing" constant="-30" id="cty-hP-w6N"/>
                                     <constraint firstAttribute="trailing" secondItem="F0A-2v-dub" secondAttribute="trailing" constant="-10" id="eYE-Zu-eIs"/>
                                     <constraint firstItem="uDk-7T-EsC" firstAttribute="leading" secondItem="QLE-zP-86V" secondAttribute="leadingMargin" constant="-30" id="kph-v0-byx"/>
+                                    <constraint firstItem="pYw-gI-YmG" firstAttribute="width" secondItem="QLE-zP-86V" secondAttribute="width" multiplier="0.3" id="r1x-5S-VTV"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -311,8 +312,6 @@
                         <outlet property="emojiLabel" destination="99z-eV-6Ep" id="Wi1-SW-TB2"/>
                         <outlet property="emojiView" destination="AGG-WS-kF8" id="kak-f7-8PI"/>
                         <outlet property="imageView" destination="uDk-7T-EsC" id="i7g-Mg-Ym1"/>
-                        <outlet property="poweredByViewBottomConstraint" destination="iv4-K3-PKw" id="mXi-rv-rZz"/>
-                        <outlet property="poweredByViewTopConstraint" destination="DMT-i1-ZoI" id="fDT-2X-ER8"/>
                         <outlet property="settingsView" destination="F0A-2v-dub" id="nrc-Vg-JtK"/>
                         <outlet property="tryAgainButton" destination="MRX-qF-qxE" id="AiZ-yK-Ma4"/>
                     </connections>
@@ -324,7 +323,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Affectiva_Logo_Clear_Background.png" width="638" height="295"/>
+        <image name="Affectiva_Logo_Clear_Background.png" width="1161" height="219"/>
         <image name="camera-lens-icon.png" width="48" height="48"/>
         <image name="camera-swap-icon.png" width="48" height="48"/>
     </resources>

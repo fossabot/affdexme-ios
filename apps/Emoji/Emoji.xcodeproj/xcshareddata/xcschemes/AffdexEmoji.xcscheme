@@ -14,6 +14,20 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "F44012B1B8F47727CB44FEB5B8698421"
+               BuildableName = "Pods_AffdexEmoji.framework"
+               BlueprintName = "Pods-AffdexEmoji"
+               ReferencedContainer = "container:Pods/Pods.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "65920A6E16D73F8700D89A4B"
                BuildableName = "AffdexEmoji.app"
                BlueprintName = "AffdexEmoji"
