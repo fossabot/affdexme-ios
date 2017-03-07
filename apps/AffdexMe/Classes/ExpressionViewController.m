@@ -83,11 +83,11 @@
         
         if (value < 0.0)
         {
-            [self.indicatorView setBackgroundColor:[UIColor redColor]];
+            [self.indicatorView setBackgroundColor:[UIColor colorWithRed:235.0/255.0 green:0.0/255.0 blue:139.0/255.0 alpha:1.0]];  // Affectiva magenta
         }
         else
         {
-            [self.indicatorView setBackgroundColor:[UIColor greenColor]];
+            [self.indicatorView setBackgroundColor:[UIColor colorWithRed:132.0/255.0 green:223.0/255.0 blue:101.0/255.0 alpha:1.0]];  // Affectiva green
         }
 
         [self.indicatorView setBounds:bounds];
@@ -95,7 +95,8 @@
         {
             self.scoreLabel.text = [NSString stringWithFormat:@"%.0f%%", value];
         }
-        else {
+        else
+        {
             self.scoreLabel.text = nil;
         }
     }

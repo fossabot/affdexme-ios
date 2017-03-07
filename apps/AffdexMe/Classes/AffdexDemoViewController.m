@@ -968,10 +968,12 @@
 
 - (void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection;
 {
+#if 0
     UIUserInterfaceSizeClass previousHorizontalSizeClass = [previousTraitCollection horizontalSizeClass];
     UIUserInterfaceSizeClass newHorizontalSizeClass = [[self traitCollection] horizontalSizeClass];
 
-    NSLog(@"trait collection horizontal size class %ld --> %ld", previousHorizontalSizeClass, newHorizontalSizeClass);
+    NSLog(@"trait collection horizontal size class %ld --> %ld", (long) previousHorizontalSizeClass, (long) newHorizontalSizeClass);
+#endif
 }
 
 - (void)viewWillAppear:(BOOL)animated;

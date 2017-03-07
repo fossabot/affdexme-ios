@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -30,18 +31,27 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AffdexMe" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="zSk-d3-eqj">
-                                <rect key="frame" x="36" y="194.5" width="303" height="57.5"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="48"/>
+                                <rect key="frame" x="36" y="165" width="303" height="72"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="60"/>
                                 <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Affectiva_Logo_Clear_Background.png" translatesAutoresizingMaskIntoConstraints="NO" id="stv-qF-vlN">
+                                <rect key="frame" x="112.5" y="579.5" width="150" height="28.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="stv-qF-vlN" secondAttribute="height" multiplier="1161:219" id="nN9-zb-xvf"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="stv-qF-vlN" firstAttribute="width" secondItem="hQQ-gX-tip" secondAttribute="width" multiplier="0.4" id="72n-CR-WPi"/>
                             <constraint firstItem="eO8-5S-dfa" firstAttribute="top" secondItem="OQr-n7-zI6" secondAttribute="bottom" constant="20" id="8Jh-Gn-R5F"/>
                             <constraint firstItem="OQr-n7-zI6" firstAttribute="leading" secondItem="hQQ-gX-tip" secondAttribute="leadingMargin" constant="20" id="BiK-bB-Jhd"/>
                             <constraint firstAttribute="trailingMargin" secondItem="zSk-d3-eqj" secondAttribute="trailing" constant="20" id="KYq-2E-eO6"/>
-                            <constraint firstItem="zSk-d3-eqj" firstAttribute="centerY" secondItem="hQQ-gX-tip" secondAttribute="bottom" multiplier="1/3" constant="1" id="awE-5C-BbW"/>
+                            <constraint firstItem="stv-qF-vlN" firstAttribute="centerX" secondItem="hQQ-gX-tip" secondAttribute="centerX" id="TXq-bz-VSf"/>
+                            <constraint firstItem="zSk-d3-eqj" firstAttribute="centerY" secondItem="hQQ-gX-tip" secondAttribute="bottom" multiplier="0.3" constant="1" id="awE-5C-BbW"/>
+                            <constraint firstItem="OQr-n7-zI6" firstAttribute="top" secondItem="stv-qF-vlN" secondAttribute="bottom" constant="18" id="d5Q-Pe-Kac"/>
                             <constraint firstItem="zSk-d3-eqj" firstAttribute="leading" secondItem="hQQ-gX-tip" secondAttribute="leadingMargin" constant="20" id="uC9-7Y-w9g"/>
                             <constraint firstAttribute="trailingMargin" secondItem="OQr-n7-zI6" secondAttribute="trailing" constant="20" id="xEc-Z6-NYg"/>
                         </constraints>
@@ -55,4 +65,7 @@
             <point key="canvasLocation" x="191" y="70"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Affectiva_Logo_Clear_Background.png" width="1161" height="219"/>
+    </resources>
 </document>
