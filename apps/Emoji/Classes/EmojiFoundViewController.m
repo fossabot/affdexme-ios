@@ -6,7 +6,10 @@
 //  Copyright © 2016 Affectiva. All rights reserved.
 //
 
+#import <sys/utsname.h>
+
 #import "EmojiFoundViewController.h"
+#import "SoundEffect.h"
 
 @interface UIImage (test)
 
@@ -78,10 +81,70 @@
 @interface EmojiFoundViewController ()
 
 @property (strong) NSArray *emojis;
+@property (strong) SoundEffect *sound;
 
 @end
 
 @implementation EmojiFoundViewController
+
+- (NSString *)deviceName
+{
+    struct utsname systemInfo;
+    uname(&systemInfo);
+    NSString *deviceName;
+
+    NSString *machineName = [NSString stringWithCString:systemInfo.machine encoding:NSUTF8StringEncoding];
+
+    if ([machineName isEqualToString:@"iPhone1,2"])
+    {
+        deviceName = @"iPhone 3G";
+    }
+    else if ([machineName isEqualToString:@"iPhone2,1"])
+    {
+        deviceName = @"iPhone 3GS";
+    }
+    else if ([machineName isEqualToString:@"iPhone3,1"] ||
+            [machineName isEqualToString:@"iPhone3,2"] ||
+            [machineName isEqualToString:@"iPhone3,3"])
+    {
+        deviceName = @"iPhone 4";
+    }
+    else if ([machineName isEqualToString:@"iPhone4,1"])
+    {
+        deviceName = @"iPhone 4S";
+    }
+    else if ([machineName isEqualToString:@"iPhone5,1"])
+    {
+        deviceName = @"iPhone 5";
+    }
+    else if ([machineName isEqualToString:@"iPod1,1"])
+    {
+        deviceName = @"iPod Touch 1G";
+    }
+    else if ([machineName isEqualToString:@"iPod2,1"] ||
+             [machineName isEqualToString:@"iPod2,2"])
+    {
+        deviceName = @"iPod Touch 2G";
+    }
+    else if ([machineName isEqualToString:@"iPod3,1"])
+    {
+        deviceName = @"iPod Touch 3G";
+    }
+    else if ([machineName isEqualToString:@"iPod4,1"])
+    {
+        deviceName = @"iPod Touch 4G";
+    }
+    else if ([machineName isEqualToString:@"iPod5,1"])
+    {
+        deviceName = @"iPod Touch 5G";
+    }
+    else
+    {
+        NSLog(@"Unknown machine name %@", machineName);
+        deviceName = machineName;
+    }
+    return deviceName;
+}
 
 - (id)initWithCoder:(NSCoder *)aDecoder;
 {
@@ -155,7 +218,8 @@
     return self;
 }
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     
     self.imageView.image = [self.face.userInfo objectForKey:@"image"];
@@ -182,6 +246,34 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (UIImage *)captureSnapshot;
+{
+    UIImage *result;
+
+    self.tryAgainButton.hidden = YES;
+    self.settingsView.hidden = YES;
+
+    UIGraphicsBeginImageContext(self.view.frame.size);
+    [self.view drawViewHierarchyInRect:self.view.frame afterScreenUpdates:YES];
+    result = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+
+    self.tryAgainButton.hidden = NO;
+    self.settingsView.hidden = NO;
+
+    return result;
+}
+
+- (IBAction)cameraButtonTouched:(id)sender;
+{
+    self.sound = [[SoundEffect alloc] initWithSoundNamed:@"camera-shutter.mp3"];
+    [self.sound play];
+    UIImage *snap = [self captureSnapshot];
+    if (nil != snap) {
+        UIImageWriteToSavedPhotosAlbum(snap, nil, nil, nil);
+    }
 }
 
 /*
