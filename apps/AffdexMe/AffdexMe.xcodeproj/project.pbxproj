@@ -26,7 +26,6 @@
 		682664DB176667DC004E93E6 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 682664DA176667DC004E93E6 /* CoreMedia.framework */; };
 		682B8B73185F6D4F00DB10DE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 682B8B72185F6D4F00DB10DE /* main.m */; };
 		686C75E31B95EAC000483C1A /* Square.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 686C75C01B95EAC000483C1A /* Square.ttf */; };
-		686C75E41B95EAC000483C1A /* Affectiva_Logo Clear Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 686C75C21B95EAC000483C1A /* Affectiva_Logo Clear Background.png */; };
 		686C75E51B95EAC000483C1A /* Anger.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 686C75C31B95EAC000483C1A /* Anger.jpg */; };
 		686C75E61B95EAC000483C1A /* Attention.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 686C75C41B95EAC000483C1A /* Attention.jpg */; };
 		686C75E71B95EAC000483C1A /* Brow Furrow.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 686C75C51B95EAC000483C1A /* Brow Furrow.jpg */; };
@@ -70,7 +69,6 @@
 		68DD4B68194784A70077ED24 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65920A7616D73F8700D89A4B /* CoreGraphics.framework */; };
 		68E978CF1C17724400EAD971 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68E978CE1C17724400EAD971 /* LaunchScreen.storyboard */; };
 		68E978D11C1772D200EAD971 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 68E978D01C1772D200EAD971 /* background.png */; };
-		68E978D31C1772F600EAD971 /* Affectiva_Logo Clear Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 68E978D21C1772F600EAD971 /* Affectiva_Logo Clear Background.png */; };
 		68F4233218CD216D0032A50D /* ExpressionView_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68F4233018CD216D0032A50D /* ExpressionView_iPad.xib */; };
 		68F4233318CD216D0032A50D /* ExpressionView_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68F4233118CD216D0032A50D /* ExpressionView_iPhone.xib */; };
 		68F626B81B909F2C004521CE /* SoundEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F626B71B909F2C004521CE /* SoundEffect.m */; };
@@ -78,6 +76,7 @@
 		68F69CD01A7FEC37001A7DAB /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 68F69CCF1A7FEC37001A7DAB /* Settings.bundle */; };
 		68FA744C1B8E1659004045F3 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68FA744B1B8E1659004045F3 /* MediaPlayer.framework */; };
 		80C1FA373E7B06E146080315 /* Pods_AffdexMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6499AFBE99C1FAFEF316AE7F /* Pods_AffdexMe.framework */; };
+		D9111B001E60EAC300E8467B /* Affectiva_Logo_Clear_Background.png in Resources */ = {isa = PBXBuildFile; fileRef = D9111AFF1E60EAC300E8467B /* Affectiva_Logo_Clear_Background.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -115,7 +114,6 @@
 		680348911C3C1413005CF454 /* male-glasses.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "male-glasses.png"; sourceTree = "<group>"; };
 		680348921C3C1413005CF454 /* female-noglasses.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "female-noglasses.png"; sourceTree = "<group>"; };
 		680348931C3C1413005CF454 /* female-glasses.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "female-glasses.png"; sourceTree = "<group>"; };
-		6803489A1C3C531C005CF454 /* license.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = license.txt; sourceTree = "<group>"; };
 		6803489C1C3C7C05005CF454 /* camera-lens-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera-lens-icon.png"; sourceTree = "<group>"; };
 		682664D61766679C004E93E6 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		682664D8176667A7004E93E6 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -123,7 +121,6 @@
 		682B8B72185F6D4F00DB10DE /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Classes/main.m; sourceTree = "<group>"; };
 		6851F7611C1882E9009BEDB0 /* four_steves.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = four_steves.mp4; path = "../../../../../../Volumes/Affectiva/affdex-ios/affdex-media/testvideos/four_steves.mp4"; sourceTree = "<group>"; };
 		686C75C01B95EAC000483C1A /* Square.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Square.ttf; sourceTree = "<group>"; };
-		686C75C21B95EAC000483C1A /* Affectiva_Logo Clear Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Affectiva_Logo Clear Background.png"; sourceTree = "<group>"; };
 		686C75C31B95EAC000483C1A /* Anger.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Anger.jpg; sourceTree = "<group>"; };
 		686C75C41B95EAC000483C1A /* Attention.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Attention.jpg; sourceTree = "<group>"; };
 		686C75C51B95EAC000483C1A /* Brow Furrow.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Brow Furrow.jpg"; sourceTree = "<group>"; };
@@ -172,7 +169,6 @@
 		68DCE53C1767642C000DE093 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		68E978CE1C17724400EAD971 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = ../LaunchScreen.storyboard; sourceTree = "<group>"; };
 		68E978D01C1772D200EAD971 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
-		68E978D21C1772F600EAD971 /* Affectiva_Logo Clear Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Affectiva_Logo Clear Background.png"; path = "../apps/AffdexMe/Affectiva_Logo Clear Background.png"; sourceTree = "<group>"; };
 		68F4233018CD216D0032A50D /* ExpressionView_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExpressionView_iPad.xib; sourceTree = "<group>"; };
 		68F4233118CD216D0032A50D /* ExpressionView_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExpressionView_iPhone.xib; sourceTree = "<group>"; };
 		68F626B61B909F2C004521CE /* SoundEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundEffect.h; sourceTree = "<group>"; };
@@ -181,6 +177,7 @@
 		68F626BC1B91E502004521CE /* HeaderCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderCollectionReusableView.m; sourceTree = "<group>"; };
 		68F69CCF1A7FEC37001A7DAB /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		68FA744B1B8E1659004045F3 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		D9111AFF1E60EAC300E8467B /* Affectiva_Logo_Clear_Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Affectiva_Logo_Clear_Background.png; sourceTree = SOURCE_ROOT; };
 		F300705025A4FC32857AB7CC /* Pods-AffdexMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AffdexMe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AffdexMe/Pods-AffdexMe.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -237,7 +234,6 @@
 		65920A6616D73F8700D89A4B = {
 			isa = PBXGroup;
 			children = (
-				6803489A1C3C531C005CF454 /* license.txt */,
 				68F69CCF1A7FEC37001A7DAB /* Settings.bundle */,
 				68914FF11A9102CC00A6C4D7 /* Images.xcassets */,
 				686C75BE1B95EAC000483C1A /* media */,
@@ -294,7 +290,7 @@
 				680348921C3C1413005CF454 /* female-noglasses.png */,
 				680348931C3C1413005CF454 /* female-glasses.png */,
 				680348821C3B18EC005CF454 /* Settings.png */,
-				68E978D21C1772F600EAD971 /* Affectiva_Logo Clear Background.png */,
+				D9111AFF1E60EAC300E8467B /* Affectiva_Logo_Clear_Background.png */,
 				68E978D01C1772D200EAD971 /* background.png */,
 				68D0FD921C035AAB00D430A2 /* camera-shutter.mp3 */,
 				686C75BF1B95EAC000483C1A /* fonts */,
@@ -317,7 +313,6 @@
 		686C75C11B95EAC000483C1A /* images */ = {
 			isa = PBXGroup;
 			children = (
-				686C75C21B95EAC000483C1A /* Affectiva_Logo Clear Background.png */,
 				686C75C31B95EAC000483C1A /* Anger.jpg */,
 				686C75C41B95EAC000483C1A /* Attention.jpg */,
 				686C75C51B95EAC000483C1A /* Brow Furrow.jpg */,
@@ -407,7 +402,7 @@
 		65920A6716D73F8700D89A4B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = Affectiva;
 				TargetAttributes = {
 					65920A6E16D73F8700D89A4B = {
@@ -459,7 +454,6 @@
 				686C75EF1B95EAC000483C1A /* Fear.jpg in Resources */,
 				680348831C3B18EC005CF454 /* Settings.png in Resources */,
 				68F4233318CD216D0032A50D /* ExpressionView_iPhone.xib in Resources */,
-				68E978D31C1772F600EAD971 /* Affectiva_Logo Clear Background.png in Resources */,
 				686C75FE1B95EAC000483C1A /* Valence.jpg in Resources */,
 				68E978CF1C17724400EAD971 /* LaunchScreen.storyboard in Resources */,
 				686C75F11B95EAC000483C1A /* Joy.jpg in Resources */,
@@ -469,6 +463,7 @@
 				686C75F41B95EAC000483C1A /* Lip Pucker.jpg in Resources */,
 				686C76021B95EAC000483C1A /* face1.m4v in Resources */,
 				680348951C3C1413005CF454 /* unknown-glasses.png in Resources */,
+				D9111B001E60EAC300E8467B /* Affectiva_Logo_Clear_Background.png in Resources */,
 				686C75F81B95EAC000483C1A /* Sadness.jpg in Resources */,
 				68F69CD01A7FEC37001A7DAB /* Settings.bundle in Resources */,
 				686C75EC1B95EAC000483C1A /* Engagement.jpg in Resources */,
@@ -479,7 +474,6 @@
 				686C75FC1B95EAC000483C1A /* Surprise.jpg in Resources */,
 				686C75FF1B95EAC000483C1A /* Enk.m4a in Resources */,
 				68D0FD951C0545C700D430A2 /* camera-swap-icon.png in Resources */,
-				686C75E41B95EAC000483C1A /* Affectiva_Logo Clear Background.png in Resources */,
 				686C75F31B95EAC000483C1A /* Lip Press.jpg in Resources */,
 				686C75ED1B95EAC000483C1A /* Expressiveness.jpg in Resources */,
 				686C75E61B95EAC000483C1A /* Attention.jpg in Resources */,
@@ -505,7 +499,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "set -x\nbuildPlist=${INFOPLIST_FILE}\nCFBundleVersion=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" $buildPlist)\nCFBundleVersionINCR=$((CFBundleVersion + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $CFBundleVersionINCR\" $buildPlist\n#if [ \"$PLATFORM_NAME\" != \"iphonesimulator\" ]; then\n#    rm $CODESIGNING_FOLDER_PATH/*.m4v\n#    lipo -remove x86_64 ${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/Affdex.framework/Affdex -output ${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/Affdex.framework/Affdex || true\n#    lipo -remove i386 ${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/Affdex.framework/Affdex -output ${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/Affdex.framework/Affdex || true\n#fi\n";
+			shellScript = "set -x\nbuildPlist=${INFOPLIST_FILE}\nCFBundleVersion=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$buildPlist\")\nCFBundleVersionINCR=$((CFBundleVersion + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $CFBundleVersionINCR\" \"$buildPlist\"\n";
 		};
 		75D7BAE34DE953E06CAAC60D /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -579,24 +573,33 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -612,16 +615,25 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;

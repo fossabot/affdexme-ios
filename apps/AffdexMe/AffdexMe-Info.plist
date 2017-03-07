@@ -17,13 +17,26 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>3.1.1</string>
+	<string>3.2.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>3591</string>
+	<string>3774</string>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+		<key>NSAllowsArbitraryLoadsInWebContent</key>
+		<false/>
+	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>Emotion AI</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Emotion AI</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Square.ttf</string>
@@ -37,6 +50,8 @@
 		<string>armv7</string>
 	</array>
 	<key>UIRequiresFullScreen</key>
+	<true/>
+	<key>UIRequiresPersistentWiFi</key>
 	<true/>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>

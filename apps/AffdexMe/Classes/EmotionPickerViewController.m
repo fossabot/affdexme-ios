@@ -122,7 +122,8 @@
 - (void)viewWillDisappear:(BOOL)animated;
 {
     [super viewWillDisappear:animated];
-    BOOL iPhone = ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone);
+//    BOOL iPhone = ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone);
+    BOOL iPhone = [self traitCollection].horizontalSizeClass == UIUserInterfaceSizeClassCompact;
     UICollectionView *v;
     if (iPhone) {
         v = self.collectionViewCompact;

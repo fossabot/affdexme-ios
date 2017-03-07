@@ -19,9 +19,9 @@
 
 @dynamic metric;
 
-- (id)initWithName:(NSString *)name deviceIsPhone:(BOOL)iPhoneInUse;
+- (id)initWithName:(NSString *)name horizontalSizeClass:(UIUserInterfaceSizeClass)horizontalSizeClass;
 {
-    if (iPhoneInUse)
+    if (horizontalSizeClass == UIUserInterfaceSizeClassCompact)
     {
         self = [super initWithNibName:@"ExpressionView_iPhone" bundle:nil];
     }
@@ -57,7 +57,6 @@
     self.expressionLabel.text = self.name;
 
     self.scoreLabel.font = [UIFont fontWithName:@"SquareFont" size:scoreSize];
-    
     self.indicatorBounds = self.indicatorView.bounds;
     [self setMetric:0.0];
 }
@@ -84,17 +83,22 @@
         
         if (value < 0.0)
         {
-            [self.indicatorView setBackgroundColor:[UIColor redColor]];
+            [self.indicatorView setBackgroundColor:[UIColor colorWithRed:235.0/255.0 green:0.0/255.0 blue:139.0/255.0 alpha:1.0]];  // Affectiva magenta
         }
         else
         {
-            [self.indicatorView setBackgroundColor:[UIColor greenColor]];
+            [self.indicatorView setBackgroundColor:[UIColor colorWithRed:132.0/255.0 green:223.0/255.0 blue:101.0/255.0 alpha:1.0]];  // Affectiva green
         }
 
         [self.indicatorView setBounds:bounds];
-        self.scoreLabel.text = [NSString stringWithFormat:@"%.0f%%", value];
-//        float alphaValue = fmax(fabs(value) / 100.0, 0.35);
-//        self.view.alpha = alphaValue;
+        if ([self.name length])
+        {
+            self.scoreLabel.text = [NSString stringWithFormat:@"%.0f%%", value];
+        }
+        else
+        {
+            self.scoreLabel.text = nil;
+        }
     }
 }
 
