@@ -1,14 +1,41 @@
 language: objective-c
-osx_image: xcode7
-xcode_workspace: AffdexMe.xcworkspace
-xcode_scheme: AffdexMe
-xcode_sdk: iphonesimulator9.0
+osx_image: xcode8.2
+
+# Note: travis uses xctool which is no longer supported.  Build manually using xcodebuild instead.
+# xcode_workspace: Emoji.xcworkspace
+# xcode_scheme: Emoji
+# xcode_sdk: iphonesimulator10.0
+
 notifications:
     email: false
 
 before_install:
+  #------------ AffdexMe ------------
+
   # cd into source directory
   - cd apps/AffdexMe
 
-  # Download and decompress the latest Affdex iOS SDK
+  # Install the latest Affdex iOS SDK and AWS pods
+  - pod repo update
   - pod install
+
+  # Build the app.
+#  - xcodebuild -workspace AffdexMe.xcworkspace -scheme 'AffdexMe' -sdk iphonesimulator -configuration Debug clean build
+
+  # Restore original working directory.
+  - cd ../..
+
+  #---------- Affdex Emoji ----------
+
+  # cd into source directory
+  - cd apps/Emoji
+
+  # Installthe latest Affdex iOS SDK and AWS pods
+  - pod repo update
+  - pod install
+
+  # Build the app.
+  - xcodebuild -workspace Emoji.xcworkspace -scheme 'AffdexEmoji' -sdk iphonesimulator -configuration Debug clean build
+
+  # Restore original working directory.
+  - cd ../..
