@@ -37,7 +37,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Affectiva_Logo_Clear_Background.png" translatesAutoresizingMaskIntoConstraints="NO" id="stv-qF-vlN">
-                                <rect key="frame" x="112.5" y="579.5" width="150" height="28.5"/>
+                                <rect key="frame" x="113" y="579.5" width="150" height="28.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="cYW-LQ-ErD"/>
                                     <constraint firstAttribute="width" secondItem="stv-qF-vlN" secondAttribute="height" multiplier="1161:219" id="nN9-zb-xvf"/>
