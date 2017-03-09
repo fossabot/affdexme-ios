@@ -271,57 +271,6 @@
     }
 }
 
-- (UIImage *)captureSnapshot;
-{
-    UIImage *result;
-
-    UIGraphicsBeginImageContext(self.view.frame.size);
-    [self.view drawViewHierarchyInRect:self.view.frame afterScreenUpdates:YES];
-    result = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
-    return result;
-}
-
-- (IBAction)cameraButtonTouched:(id)sender;
-{
-    self.settingsView_compact.hidden = TRUE;
-    self.settingsView_regular.hidden = TRUE;
-    UIImage *snap = [self captureSnapshot];
-    self.sound = [[SoundEffect alloc] initWithSoundNamed:@"camera-shutter.mp3"];
-    [self.sound play];
-    self.settingsView_compact.hidden = FALSE;
-    self.settingsView_regular.hidden = FALSE;
-    if (nil != snap) {
-        UIImageWriteToSavedPhotosAlbum(snap, nil, nil, nil);
-    }
-}
-
-- (IBAction)cameraSwapButtonTouched:(id)sender;
-{
-    if (self.cameraToUse == AFDX_CAMERA_FRONT)
-    {
-        self.cameraToUse = AFDX_CAMERA_BACK;
-    }
-    else
-    {
-        self.cameraToUse = AFDX_CAMERA_FRONT;
-    }
-    
-    // set the expression bars for the visible expressions to 0
-    for (ExpressionViewController *vc in self.expressionViewControllers_compact)
-    {
-        vc.metric = 0.0;
-    }
-    for (ExpressionViewController *vc in self.expressionViewControllers_regular)
-    {
-        vc.metric = 0.0;
-    }
-
-    // restart the detector so that the other camera comes into view
-    [self startDetector];
-}
-
 - (void)unprocessedImageReady:(AFDXDetector *)detector image:(UIImage *)image atTime:(NSTimeInterval)time;
 {
     static int skip = 0;
@@ -481,7 +430,8 @@
                                                         scale:image.scale
                                                   orientation:UIImageOrientationUpMirrored];
             [weakSelf.imageView setImage:flippedImage];
-        } else
+        }
+        else
         {
             [weakSelf.imageView setImage:newImage];
         }
@@ -629,6 +579,57 @@
     });
 }
 
+- (UIImage *)captureSnapshot;
+{
+    UIImage *result;
+
+    UIGraphicsBeginImageContext(self.view.frame.size);
+    [self.view drawViewHierarchyInRect:self.view.frame afterScreenUpdates:YES];
+    result = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+
+    return result;
+}
+
+- (IBAction)cameraButtonTouched:(id)sender;
+{
+    self.settingsView_compact.hidden = TRUE;
+    self.settingsView_regular.hidden = TRUE;
+    UIImage *snap = [self captureSnapshot];
+    self.sound = [[SoundEffect alloc] initWithSoundNamed:@"camera-shutter.mp3"];
+    [self.sound play];
+    self.settingsView_compact.hidden = FALSE;
+    self.settingsView_regular.hidden = FALSE;
+    if (nil != snap)
+    {
+        UIImageWriteToSavedPhotosAlbum(snap, nil, nil, nil);
+    }
+}
+
+- (IBAction)cameraSwapButtonTouched:(id)sender;
+{
+    if (self.cameraToUse == AFDX_CAMERA_FRONT)
+    {
+        self.cameraToUse = AFDX_CAMERA_BACK;
+    }
+    else
+    {
+        self.cameraToUse = AFDX_CAMERA_FRONT;
+    }
+
+    // set the expression bars for the visible expressions to 0
+    for (ExpressionViewController *vc in self.expressionViewControllers_compact)
+    {
+        vc.metric = 0.0;
+    }
+    for (ExpressionViewController *vc in self.expressionViewControllers_regular)
+    {
+        vc.metric = 0.0;
+    }
+
+    // restart the detector so that the other camera comes into view
+    [self startDetector];
+}
 
 #pragma mark -
 #pragma mark ViewController Delegate Methods
