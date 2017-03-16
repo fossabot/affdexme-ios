@@ -541,7 +541,7 @@
             vc.metric = 0.0;
         }
 
-/*
+#if 0
         BOOL iPhone = ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone);
         
         [UIView beginAnimations:nil context:NULL];
@@ -567,7 +567,7 @@
         }
         
         [UIView commitAnimations];
-        */
+#endif
         face.userInfo = nil;
 #ifdef BROADCAST_VIA_UDP
         char buffer[2];
