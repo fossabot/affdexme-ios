@@ -1,4 +1,5 @@
 ![Affectiva Logo](http://developer.affectiva.com/images/logo.png)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FAffectiva%2Faffdexme-ios.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FAffectiva%2Faffdexme-ios?ref=badge_shield)
 
 ###Copyright (c) 2016 Affectiva Inc. <br/>
 The Affdex SDK is covered by our [SDK License Agreement](http://developer.affectiva.com/sdklicense)<br/>
@@ -36,3 +37,7 @@ pod install
 
 This app uses some of the excellent [Emoji One emojis](http://emojione.com).
 
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FAffectiva%2Faffdexme-ios.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FAffectiva%2Faffdexme-ios?ref=badge_large)
